@@ -79,3 +79,45 @@
 # YOUR CODE BELOW — remove the # symbols from the scaffold and fill it in
 # =============================================================================
 
+def show_tasks(tasks):
+    if not tasks:
+        print("No tasks yet.")
+        return
+
+    for index, task in enumerate(tasks, 1):
+        status = "Done" if task["done"] else "Pending"
+        print(f"{index}. {task['title']} [{status}]")
+
+
+def main():
+    tasks = []
+
+    while True:
+        print("\nTODO List")
+        print("1. Add task")
+        print("2. View tasks")
+        print("3. Mark task as done")
+        print("4. Exit")
+
+        choice = input("Choose an option: ")
+        if choice == "1":
+            title = input("Enter task: ").strip()
+            if title:
+                tasks.append({"title": title, "done": False})
+        elif choice == "2":
+            show_tasks(tasks)
+        elif choice == "3":
+            show_tasks(tasks)
+            if tasks:
+                task_number = int(input("Enter task number to mark done: "))
+                if 1 <= task_number <= len(tasks):
+                    tasks[task_number - 1]["done"] = True
+        elif choice == "4":
+            break
+        else:
+            print("Invalid choice.")
+
+
+if __name__ == "__main__":
+    main()
+

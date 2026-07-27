@@ -68,3 +68,46 @@
 # YOUR CODE BELOW — remove the # symbols from the scaffold and fill it in
 # =============================================================================
 
+def add(a, b):
+    return a + b
+
+
+def subtract(a, b):
+    return a - b
+
+
+def multiply(a, b):
+    return a * b
+
+
+def divide(a, b):
+    if b == 0:
+        return None
+    return a / b
+
+
+def main():
+    print("Simple Calculator")
+    first_number = float(input("Enter first number: "))
+    operator = input("Enter operator (+, -, *, /): ")
+    second_number = float(input("Enter second number: "))
+
+    if operator == "+":
+        print(f"Result: {add(first_number, second_number)}")
+    elif operator == "-":
+        print(f"Result: {subtract(first_number, second_number)}")
+    elif operator == "*":
+        print(f"Result: {multiply(first_number, second_number)}")
+    elif operator == "/":
+        result = divide(first_number, second_number)
+        if result is None:
+            print("Error: Division by zero.")
+        else:
+            print(f"Result: {result}")
+    else:
+        print("Invalid operator.")
+
+
+if __name__ == "__main__":
+    main()
+

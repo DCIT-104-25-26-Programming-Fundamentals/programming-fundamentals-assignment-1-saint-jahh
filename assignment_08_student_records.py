@@ -90,3 +90,42 @@
 # YOUR CODE BELOW — remove the # symbols from the scaffold and fill it in
 # =============================================================================
 
+def add_student(records):
+    name = input("Enter student name: ").strip()
+    student_id = input("Enter student ID: ").strip()
+    score = int(input("Enter score: "))
+    records.append({"name": name, "id": student_id, "score": score})
+
+
+def display_records(records):
+    if not records:
+        print("No student records yet.")
+        return
+
+    for record in records:
+        print(f"{record['name']} | ID: {record['id']} | Score: {record['score']}")
+
+
+def main():
+    records = []
+
+    while True:
+        print("\nStudent Records")
+        print("1. Add student")
+        print("2. View records")
+        print("3. Exit")
+
+        choice = input("Choose an option: ")
+        if choice == "1":
+            add_student(records)
+        elif choice == "2":
+            display_records(records)
+        elif choice == "3":
+            break
+        else:
+            print("Invalid choice.")
+
+
+if __name__ == "__main__":
+    main()
+

@@ -49,3 +49,29 @@
 # YOUR CODE BELOW — remove the # symbols from the scaffold and fill it in
 # =============================================================================
 
+def fibonacci_sequence(n):
+    if n <= 0:
+        return []
+
+    sequence = []
+    a, b = 0, 1
+    for _ in range(n):
+        sequence.append(a)
+        a, b = b, a + b
+    return sequence
+
+
+def main():
+    n = int(input("How many Fibonacci numbers? "))
+    if n <= 0:
+        print("Please enter a positive number.")
+        return
+
+    sequence = fibonacci_sequence(n)
+    print("Fibonacci sequence:")
+    print(*sequence)
+
+
+if __name__ == "__main__":
+    main()
+

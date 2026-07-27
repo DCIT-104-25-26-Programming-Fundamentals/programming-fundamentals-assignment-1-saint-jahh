@@ -60,3 +60,82 @@
 # YOUR CODE BELOW — remove the # symbols from the scaffold and fill it in
 # =============================================================================
 
+def read_matrix(rows, columns):
+    matrix = []
+    for i in range(rows):
+        row = []
+        for j in range(columns):
+            value = int(input(f"Enter value for matrix[{i}][{j}]: "))
+            row.append(value)
+        matrix.append(row)
+    return matrix
+
+
+def add_matrices(first, second):
+    result = []
+    for i in range(len(first)):
+        row = []
+        for j in range(len(first[0])):
+            row.append(first[i][j] + second[i][j])
+        result.append(row)
+    return result
+
+
+def subtract_matrices(first, second):
+    result = []
+    for i in range(len(first)):
+        row = []
+        for j in range(len(first[0])):
+            row.append(first[i][j] - second[i][j])
+        result.append(row)
+    return result
+
+
+def multiply_matrices(first, second):
+    if len(first[0]) != len(second):
+        return None
+
+    result = []
+    for i in range(len(first)):
+        row = []
+        for j in range(len(second[0])):
+            total = 0
+            for k in range(len(second)):
+                total += first[i][k] * second[k][j]
+            row.append(total)
+        result.append(row)
+    return result
+
+
+def print_matrix(matrix):
+    for row in matrix:
+        print(row)
+
+
+def main():
+    rows = int(input("Enter number of rows: "))
+    columns = int(input("Enter number of columns: "))
+
+    print("Enter first matrix:")
+    first_matrix = read_matrix(rows, columns)
+
+    print("Enter second matrix:")
+    second_matrix = read_matrix(rows, columns)
+
+    print("\nSum:")
+    print_matrix(add_matrices(first_matrix, second_matrix))
+
+    print("\nDifference:")
+    print_matrix(subtract_matrices(first_matrix, second_matrix))
+
+    product = multiply_matrices(first_matrix, second_matrix)
+    if product is None:
+        print("\nMatrix multiplication is not possible with these dimensions.")
+    else:
+        print("\nProduct:")
+        print_matrix(product)
+
+
+if __name__ == "__main__":
+    main()
+

@@ -55,3 +55,17 @@
 # YOUR CODE BELOW — remove the # symbols from the scaffold and fill it in
 # =============================================================================
 
+def multiplication_table(number, limit=10):
+    for multiplier in range(1, limit + 1):
+        print(f"{number} x {multiplier} = {number * multiplier}")
+
+
+def main():
+    number = int(input("Enter a number: "))
+    print(f"Multiplication table for {number}:")
+    multiplication_table(number)
+
+
+if __name__ == "__main__":
+    main()
+
